@@ -40,5 +40,5 @@ def post_list(request):
     return render(request, 'post_list.html', {'posts': posts})
 
 def user_data(request):
-    # Your logic here
-    return render(request, 'user_data.html')
+    records = Record.objects.all()
+    return render(request, 'user_data.html', {'records': records})

@@ -4,30 +4,26 @@
 
 <h1>Existing Records</h1>
 
-<table class="table">
+<table  class="table">
   <thead>
     <tr>
       <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
+      <th scope="col">Last Name </th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
     </tr>
   </thead>
   <tbody>
-    {% if records %}
-        {% for record in records %}
-            <tr>
-                <td>{{ record.first_name }}</td>
-                <td>{{ record.last_name }}</td>
-                <td>{{ record.email }}</td>
-                <td>{{ record.phone }}</td>
-            </tr>
-        {% endfor %}
-    {% else %}
+  {% if records %}
+    {% for record in records %}
         <tr>
-            <td colspan="4">No records found.</td>
-        </tr>
-    {% endif %}
+          <td>{{ record.first_name }}</td>
+        <td>{{ record.last_name }}</td>
+        <td>{{ record.email }}</td>
+        <td>{{ record.phone }}</td>      
+         </tr>
+      {% endfor %}
+  {% endif %}
   </tbody>
 </table>
 
