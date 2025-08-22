@@ -4,13 +4,18 @@ This repository will consist of our files for our Social life app both our deskt
 # Features
 Profile customization
   Creating and customizing profiles for users of our application.
-Messenger
-  Ways for users to communicate amongst one another.
+Comments
+  a comment section for each post which will also allow for image commenting.
 Public Post
   Feature that will allow for individual users to create community posts for others on the app to see and interact with.
-Event calendar
-  Calendar that will allow for users to create special dates on certain times and dates that will inform them of events to come.
-#Included Files
-  
-# Our Setup
-we used squlit3 to create our database as well as bootstrap for our orgazational featues and for our login we used ingrained features from Django
+# Design options
+we used squlite3 to create our database as well as bootstrap for our orgazational featues and for our login we used ingrained features from Django
+# included Files
+Contact App folder
+media folder
+myApp folder
+static folder
+.DS_Store file
+db.sqlite3
+manage.py
+
