@@ -1,19 +1,39 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-<h2>All Posts</h2>
-<a href="{% url 'create_post' %}">Create New Post</a>
-<ul>
-    {% for post in posts %}
-        <li>
-            <strong>{{ post.title }}</strong> by {{ post.author.username }}<br>
-            {{ post.content }}<br>
-            <small>{{ post.created_at }}</small>
-        </li>
-    {% empty %}
-        <li>No posts yet.</li>
-    {% endfor %}
-</ul>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>All Posts</h2>
+    <a href="{% url 'create_post' %}" class="btn btn-primary">Create New Post</a>
+  </div>
+
+  {% if posts %}
+    <div class="row">
+      {% for post in posts %}
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm">
+            {% if post.image %}
+              <img src="{{ post.image.url }}" class="card-img-top" alt="Post image">
+            {% else %}
+              <img src="{% static 'images/default_post.png' %}" class="card-img-top" alt="Default post image">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">{{ post.content }}</p>
+              <p class="text-muted small mb-0">
+                Posted by <strong>{{ post.author.username }}</strong>
+                on {{ post.created_at|date:"F j, Y, g:i a" }}
+              </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No posts yet.</p>
+  {% endif %}
+</div>
 
 {% endblock %}
